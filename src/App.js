@@ -1,25 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
-function App() {
+export default function App() {
+  const [textT, setTextT] = useState('');
+  const [textB, setTextB] = useState('');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <h1>React Meme Generator</h1>
+
+        <div className="topText">
+          <label htmlFor="Top text" placeholder="What should it say here?">
+            <input
+              value={textT}
+              onChange={(event) => {
+                const topText = setTextT(event.currentTarget.value);
+                console.log('topText input', textT);
+              }}
+              name="Top text"
+            />
+          </label>
+        </div>
+        <div className="memePic">Here goes the meme</div>
+
+        <div className="bottomText">
+          <label htmlFor="Bottom text" placeholder="Do you like peas?">
+            <input
+              value={textB}
+              onChange={(event) => {
+                const bottomText = setTextB(event.currentTarget.value);
+                console.log('bottomText input', textB);
+              }}
+              name="Bottom text"
+            />
+          </label>
+        </div>
+        <button>Download</button>
+      </div>
+      <div />
+    </>
   );
 }
-
-export default App;
