@@ -38,7 +38,8 @@ export default function App() {
       .catch((error) => {
         console.log(error);
       });
-  });
+    // pass an empty array as a second argument so useEffect only runs once
+  }, []);
 
   return (
     <>
@@ -72,13 +73,16 @@ export default function App() {
         </div>
 
         <div style={{ display: 'flex' }}>
-          <label htmlFor="Bottom text">Search for an image: </label>
+          <label htmlFor="Meme template">Search for an image: </label>
           <input
             style={{ marginLeft: 'auto' }}
             value={textB}
             onChange={(event) => {
               const bottomText = setTextB(event.currentTarget.value);
-              console.log('bottomText input', event.currentTarget.value);
+              console.log(
+                'Meme template search input',
+                event.currentTarget.value,
+              );
             }}
             name="Bottom text"
           />
